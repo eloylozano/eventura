@@ -1,0 +1,27 @@
+---
+import Layout from "../Layout/Layout.astro";
+import "../style.css";
+---
+
+<Layout>
+  <div id="hero"
+    class="flex flex-col justify-center items-center gap-12 h-[80vh] text-white"
+  >
+    <div class="flex flex-col items-center justify-center gap-4">
+      <img src="/images/logo/white02.svg" alt="Eventura's Logo" class="h-24" />
+      <h1 class="font-black text-8xl">Eventura</h1>
+    </div>
+    <p class="font-regular text-xl">
+      Organize, connect, and experience every event as an unforgettable
+      experience.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  #hero {
+    background-image: url("/images/wallpapers/01.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
