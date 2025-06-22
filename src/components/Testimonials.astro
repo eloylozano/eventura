@@ -1,0 +1,66 @@
+---
+import CustomH2 from "./CustomH2.astro";
+import Slider from "./Slider.astro";
+import Text from "./Text.astro";
+
+const testimonials = [
+  {
+    img: "peter",
+    name: "Peter M.",
+    profession: "Musician",
+    quote:
+      "Incredible organization and fantastic support throughout the event.",
+    rating: 5,
+  },
+  {
+    img: "sarah",
+    name: "Sarah P.",
+    profession: "CEO of Stardiew",
+    quote: "The platform helped us reach a whole new audience effortlessly.",
+    rating: 5,
+  },
+  {
+    img: "raul",
+    name: "Raul M.",
+    profession: "Musician",
+    quote: "Seamless experience and great communication.",
+    rating: 5,
+  },
+  {
+    img: "luca",
+    name: "Luca T.",
+    profession: "Artist",
+    quote: "A game changer for how I organize my exhibitions.",
+    rating: 5,
+  },
+  {
+    img: "lia",
+    name: "Lia H.",
+    profession: "Singer",
+    quote: "Easy to use and professional – highly recommended!",
+    rating: 5,
+  },
+  {
+    img: "mia",
+    name: "Mia R.",
+    profession: "Event Planner",
+    quote: "Everything ran smoothly thanks to their excellent tools.",
+    rating: 5,
+  },
+  {
+    img: "jake",
+    name: "Jake L.",
+    profession: "DJ",
+    quote: "The best platform for managing my gigs and contacts.",
+    rating: 5,
+  },
+];
+---
+
+<section class="px-32">
+  <CustomH2 title="Testimonials" class="mb-12" />
+  <Text
+    text=" Thousands of organizers and attendees already trust Eventura to transform their events into memorable experiences. These are some of their stories."
+  />
+  <Slider testimonials={testimonials} />
+</section>

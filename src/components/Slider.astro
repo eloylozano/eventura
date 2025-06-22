@@ -1,0 +1,64 @@
+---
+const { testimonials = [] } = Astro.props;
+import TestimonialCard from './TestimonialCard.astro';
+---
+
+<div class="relative w-full overflow-hidden mt-12">
+  <div
+    id="slider"
+    class="slider flex gap-6 overflow-x-auto scroll-smooth pb-4 no-scrollbar cursor-grab"
+  >
+    {testimonials.map((testimonial) => (
+  <TestimonialCard {...testimonial} class="flex-shrink-0" />
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  if (typeof window !== 'undefined') {
+    const slider = document.getElementById('slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('pointerdown', (e) => {
+      isDown = true;
+      slider.classList.add('dragging');
+      startX = e.pageX;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('pointerleave', () => {
+      isDown = false;
+      slider.classList.remove('dragging');
+    });
+
+    slider.addEventListener('pointerup', () => {
+      isDown = false;
+      slider.classList.remove('dragging');
+    });
+
+    slider.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX;
+      const walk = (x - startX) * 1.5;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  }
+</script>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+</style>

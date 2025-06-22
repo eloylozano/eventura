@@ -1,0 +1,11 @@
+---
+const { title, class: additionalClass = "" } = Astro.props;
+---
+
+<h4 class=`font-bold text-[#2e2e2e] my-2 ${additionalClass}`>{title}</h4>
+
+<style>
+  h4 {
+    font-family: "Work Sans", sans-serif !important;
+  }
+</style>

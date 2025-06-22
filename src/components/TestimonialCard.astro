@@ -1,0 +1,38 @@
+---
+import CustomH4 from "./CustomH4.astro";
+const {
+  profession,
+  img,
+  name,
+  quote,
+  rating = 0,
+  class: additionalClass = "",
+} = Astro.props;
+
+const maxStars = 5;
+const fullStar = "★";
+const emptyStar = "☆";
+const stars = fullStar.repeat(rating) + emptyStar.repeat(maxStars - rating);
+---
+
+<div
+  class={`flex flex-col gap-3 p-8 w-60 text-[#2e2e2e] bg-[#F0F0F0] shadow-md ${additionalClass}`}
+>
+  <div class="h-24 w-24 overflow-hidden mx-auto rounded-md">
+    <img
+      src={`/images/profiles/${img}.jpg`}
+      alt={`${name}'s profile pic`}
+      class="h-full w-full object-cover"
+    />
+  </div>
+  <div class="w-full leading-tight">
+    <p class="font-medium text-md text-left leading-tight">{name}</p>
+    <p class="text-xs text-left leading-tight">{profession}</p>
+  </div>
+  <div class="flex flex-col justify-between flex-grow" style="min-height: 6rem;">
+    <q class="italic text-sm text-center mb-2">{quote}</q>
+    <div class="text-yellow-500 text-3xl w-full flex justify-evenly gap-5">
+      {stars}
+    </div>
+  </div>
+</div>

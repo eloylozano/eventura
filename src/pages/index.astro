@@ -1,10 +1,15 @@
 ---
 import Layout from "../Layout/Layout.astro";
+import CustomH2 from "../components/CustomH2.astro";
+import Step from "../components/Step.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Text from "../components/Text.astro";
 import "../style.css";
 ---
 
 <Layout>
-  <div id="hero"
+  <div
+    id="hero"
     class="flex flex-col justify-center items-center gap-12 h-[80vh] text-white"
   >
     <div class="flex flex-col items-center justify-center gap-4">
@@ -16,6 +21,35 @@ import "../style.css";
       experience.
     </p>
   </div>
+  <section class="h-100 flex flex-col justify-center">
+    <div class="flex justify-evenly items-start py-12 px-16">
+      <Step
+        title="Organize effortlessly"
+        text="Create events in minutes. From private meetups to large concerts, everything is designed so you can focus on what matters: the experience."
+        img="calendar"
+      />
+      <Step
+        title="Connect with your audience"
+        text="Easily share your event, manage guests, track RSVPs, and keep everyone updated with smart notifications."
+        img="connect"
+      />
+      <Step
+        title="Measure, learn, and grow"
+        text="Get valuable insights after each event. Analyze attendance, engagement, and feedback to keep improving every time."
+        img="stats"
+      />
+    </div>
+  </section>
+  <Testimonials />
+  <section class="h-100 mt-24 py-12 px-32 flex justify-between">
+    <div class="w-2/3 text-left flex flex-col justify-center items-start">
+      <CustomH2 title="Much more compatible than ever" class="mb-12" />
+      <Text class="text-left"
+        text="Eventura adapts to you, wherever you are and whatever your event. Compatible with any device, platform, or audience type, our technology allows you to organize, attend, and enjoy without limits. Because true connection knows no boundaries."
+      />
+    </div>
+    <img src="/images/world.png" class="h-full w-auto" alt="Globe ">
+  </section>
 </Layout>
 
 <style>

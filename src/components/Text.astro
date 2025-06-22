@@ -1,0 +1,5 @@
+---
+const { text, class: additionalClass = "" } = Astro.props;
+---
+
+<p class={`text-center text-[#2e2e2e] text-md ${additionalClass}`}>{text}</p>
