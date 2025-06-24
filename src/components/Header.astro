@@ -2,7 +2,7 @@
 
 ---
 
-<header class=" text-[#2e2e2e] px-12 py-4 shadow-md">
+<header class="text-[#2e2e2e] px-12 py-4 shadow-md">
   <div class="flex justify-between items-center">
     <div class="flex items-center gap-4">
       <img
@@ -13,10 +13,10 @@
       <p class="text-2xl font-bold">Eventura</p>
     </div>
     <nav class="flex items-center gap-16">
-      <a href="/" class="hover:underline">Home</a>
-      <a href="/how-works" class="hover:underline">How it works</a>
-      <a href="/prices" class="hover:underline">Prices</a>
-      <a href="/support" class="hover:underline">Support</a>
+      <a href="/" class="">Home</a>
+      <a href="/how-works" class="">How it works</a>
+      <a href="/prices" class="">Prices</a>
+      <a href="/support" class="">Support</a>
       <div class="flex gap-8 items-center">
         <a
           href="/start"
@@ -28,3 +28,17 @@
     </nav>
   </div>
 </header>
+
+<style>
+  nav > a {
+    transition: 0.2s ease-in-out;
+    padding: 4px 24px;
+    text-align: center;
+  }
+  nav > a:hover {
+    background-color: #ff6b6b;
+    border-radius: 100px;
+    color: white;
+
+  }
+</style>

@@ -8,8 +8,8 @@ import TestimonialCard from './TestimonialCard.astro';
     id="slider"
     class="slider flex gap-6 overflow-x-auto scroll-smooth pb-4 no-scrollbar cursor-grab"
   >
-    {testimonials.map((testimonial) => (
-  <TestimonialCard {...testimonial} class="flex-shrink-0" />
+    {testimonials.concat(testimonials).map((testimonial, i) => (
+      <TestimonialCard {...testimonial} class="flex-shrink-0" key={i} />
     ))}
   </div>
 </div>
@@ -21,6 +21,7 @@ import TestimonialCard from './TestimonialCard.astro';
     let startX;
     let scrollLeft;
 
+    // DRAG
     slider.addEventListener('pointerdown', (e) => {
       isDown = true;
       slider.classList.add('dragging');
@@ -44,6 +45,28 @@ import TestimonialCard from './TestimonialCard.astro';
       const x = e.pageX;
       const walk = (x - startX) * 1.5;
       slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // AUTOPLAY
+    let scrollAmount = 0.5;
+    let autoScroll = () => {
+      if (!slider) return;
+      slider.scrollLeft += scrollAmount;
+
+      // Loop back when end is reached
+      if (
+        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth
+      ) {
+        slider.scrollLeft = 0;
+      }
+    };
+
+    let interval = setInterval(autoScroll, 20);
+
+    // Pausar al hacer hover o click
+    slider.addEventListener('mouseenter', () => clearInterval(interval));
+    slider.addEventListener('mouseleave', () => {
+      interval = setInterval(autoScroll, 20);
     });
   }
 </script>

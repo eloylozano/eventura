@@ -1,0 +1,91 @@
+---
+import Layout from "../Layout/Layout.astro";
+import Button from "../components/Button.astro";
+import CustomH2 from "../components/CustomH2.astro";
+import Step from "../components/Step.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Text from "../components/Text.astro";
+import "../style.css";
+---
+
+<Layout>
+  <div id="hero" class="flex flex-col justify-center h-[50vh] text-white">
+    <div id="banner" class="py-12 flex flex-col items-center gap-12">
+      <div class="flex flex-col items-center justify-center gap-4">
+        <h1 class="font-bold text-6xl">How it works?</h1>
+      </div>
+      <p class="font-regular text-md text-center w-2/3">
+        With Eventura, you have everything you need in one platform: create,
+        publish, share, and manage your events from anywhere, anytime. Whether
+        you're a professional organizer or a curious attendee, the experience is
+        seamless, fast, and intuitive.
+      </p>
+    </div>
+  </div>
+  <section class="h-full flex flex-col justify-center px-26">
+    <div
+      class="flex flex-col lg:flex-row flex-wrap justify-center items-start gap-28 py-12"
+    >
+      <Step
+        title="Create your event"
+        text="Choose the type of event, set the date, location, capacity, and add all the details that will make it unique. From private gatherings to massive festivals, it all starts here."
+        img="I"
+      />
+      <Step
+        title="Invite your attendees"
+        text="Share the link, invite by email, or generate a QR code. With Eventura, connecting with your audience is easy, fast, and fully customizable."
+        img="II"
+      />
+      <Step
+        title="Organize and coordinate"
+        text="Confirm attendance, activate notifications, coordinate your team, and have real-time control. Your event is under control from start to finish."
+        img="III"
+      />
+      <Step
+        title="Enjoy your event"
+        text="With digital check-in and live tracking, everything flows. Devote your energy to what matters: making the event memorable for everyone."
+        img="IV"
+      />
+      <Step
+        title="Analyze and improve"
+        text="View statistics on participation, capacity, ratings, and feedback. Learn from each experience and make the next event even better."
+        img="V"
+      />
+    </div>
+  </section>
+
+  <section class="px-26 py-12 flex gap-24">
+    <div class="flex flex-col justify-center items-start gap-8">
+      <CustomH2 title="Start creating now" />
+      <Text
+        class="text-left w-3/4º "
+        text="Take the first step toward simpler, more memorable events. Create your account in seconds and start organizing with Eventura hassle-free. Everything is designed so you can post, invite, and manage your event quickly, clearly, and without distractions. Ready to get started?"
+      />
+
+      <Text
+        class="text-left font-medium"
+        text="Join Eventura and be part of those who create unforgettable experiences."
+      />
+
+      <Button text="Join right now"/>
+    </div>
+    <div>
+      <img src="/images/flag.png" alt="Checkered Flag" class="w-220" />
+    </div>
+  </section>
+
+  <style>
+    #hero {
+      background-image: url("/images/wallpapers/02.jpg");
+      background-size: cover;
+      background-position: center;
+      z-index: -3;
+      background-repeat: no-repeat;
+    }
+
+    #banner {
+      background-color: #2e2e2ea8;
+      width: full;
+    }
+  </style>
+</Layout>
