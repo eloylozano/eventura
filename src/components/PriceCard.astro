@@ -1,0 +1,40 @@
+---
+import Button from "./Button.astro";
+
+// Props
+const {
+  title = "",
+  description = "",
+  price = "",
+  features = [],
+  highlighted = false,
+} = Astro.props;
+---
+
+<article
+  class={`flex flex-col border-y-4 rounded-md px-6 py-8 shadow-md hover:shadow-lg bg-white text-[#2e2e2e]  w-full max-w-sm ${highlighted ? "border-[#FFD93D]" : "border-transparent"}`}
+>
+  <h3 class="text-3xl text-center font-semibold mb-8">{title}</h3>
+  <p class="text-sm text-center text-[#2e2e2e]/60 mb-4">{description}</p>
+  <div class="text-4xl font-regular mb-5 text-center">
+    {price}
+    <span class="text-base font-medium">€/mes</span>
+  </div>
+
+  <Button text="Subscribe" size="sm" />
+
+  <ul class="text-left text-xs text-gray-700 flex flex-col leading-4 gap-2 mt-6">
+    {features.map((feature) => <li>• {feature}</li>)}
+  </ul>
+</article>
+
+<style>
+article{
+    transition: 0.3s ease;
+}
+
+article:hover{
+    transform: scale(1.02);
+
+}
+</style>

@@ -1,0 +1,97 @@
+---
+import Layout from "../Layout/Layout.astro";
+import PriceCard from "../components/PriceCard.astro";
+---
+
+<Layout>
+  <section id="hero" class="flex flex-col justify-center h-[30vh] text-white">
+    <div class="py-12 flex flex-col items-center gap-12">
+      <h1 class="font-bold text-6xl text-center">¿CUÁL ES EL COSTE?</h1>
+      <p class="text-md text-center w-2/3 font-regular">
+        En Eventura solo pagas por lo que realmente necesitas. Ofrecemos planes
+        flexibles que se adaptan a organizadores ocasionales o profesionales...
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#f9f9f9]">
+    <div
+      class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center"
+    >
+      <PriceCard
+        title="Gratis"
+        description="Ideal para empezar o eventos personales."
+        price="0"
+        features={[
+          "Crear hasta 1 evento activo",
+          "Hasta 50 asistentes por evento",
+          "Página de evento básica",
+          "Invitaciones manuales",
+          "Soporte por email limitado",
+          "Check-in con QR básico",
+          "Acceso desde web y móvil",
+        ]}
+        highlighted={true}
+      />
+      <PriceCard
+        title="Básico"
+        description="For occasional organizers or small events."
+        price="19,99"
+        features={[
+          "Up to 3 active events",
+          "Up to 200 attendees per event",
+          "Basic customization",
+          "Invitation sending",
+          "Priority support",
+          "Basic statistics",
+          "Comments and ratings",
+        ]}
+      />
+      <PriceCard
+        title="Estándar"
+        description="Designed for recurring events and medium-sized audiences."
+        price="49,99"
+        features={[
+          "Unlimited events",
+          "Up to 1,000 attendees",
+          "Advanced customization",
+          "Notifications and reminders",
+          "Complete attendee management",
+          "Real-time statistics",
+          "Data export",
+          "Integration with external tools",
+        ]}
+      />
+      <PriceCard
+        title="Premium"
+        description="For professional organizers or companies."
+        price="144,99"
+        features={[
+          "The entire Standard plan",
+          "Unlimited attendees",
+          "Multi-user dashboard",
+          "Analytics segmentation",
+          "Post-event surveys",
+          "Communications automation",
+          "Access to beta features",
+          "Personalized support",
+        ]}
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #hero {
+    background-image: url("/images/wallpapers/03.png");
+    background-size: cover;
+    background-position: center;
+    z-index: -3;
+    background-repeat: no-repeat;
+  }
+
+  #banner {
+    background-color: #2e2e2ea8;
+    width: full;
+  }
+</style>

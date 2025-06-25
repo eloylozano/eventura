@@ -1,0 +1,142 @@
+---
+import Layout from "../Layout/Layout.astro";
+import { useState } from "preact/hooks";
+import "../style.css";
+---
+
+<Layout>
+  <section
+    id="hero"
+    class="flex flex-col justify-center items-center h-[35vh] text-white text-center relative"
+  >
+    <div class="py-8 flex flex-col items-center gap-6">
+      <h1 class="font-bold text-4xl sm:text-5xl">How can we help you?</h1>
+      <input
+        id="search"
+        placeholder="Search for a solution"
+        class="bg-white rounded-full text-[#2d2d2d] px-6 py-2 w-72 sm:w-96 focus:outline-none"
+      />
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-12 py-22 max-w-6xl mx-auto text-[#2e2e2e]">
+    <div id="faq-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <script is:load>
+    const data = [
+      {
+        title: "Account & Subscriptions",
+        content:
+          "Manage your profile details, update your email, change your plan, and handle your payment methods. Learn how to cancel, pause, or upgrade your subscription quickly and easily.",
+        img: "dollar",
+      },
+      {
+        title: "Support & Assistance",
+        content:
+          "Reach out to our support team, start a live chat session, or browse step-by-step tutorials to solve common issues. We're here to help you 24/7.",
+        img: "headset",
+      },
+      {
+        title: "Event Management",
+        content:
+          "Create, edit, and organize your events seamlessly. Learn to manage attendees, schedules, venues, tickets, and notifications all in one place.",
+        img: "calendar",
+      },
+      {
+        title: "Privacy & Security",
+        content:
+          "Understand how your data is protected. Adjust your privacy settings, configure secure login options, and learn how to manage permissions and data visibility.",
+        img: "shield",
+      },
+      {
+        title: "Live Access & Control",
+        content:
+          "Monitor your event in real time. Enable staff mode, check-in attendees, scan tickets, and track crowd flow with smart analytics tools.",
+        img: "account",
+      },
+    ];
+
+    const container = document.getElementById("faq-container");
+    const input = document.getElementById("search");
+
+    function createCard(item) {
+      const wrapper = document.createElement("div");
+      wrapper.className =
+        "bg-white shadow-md rounded-lg p-6 w-full cursor-pointer transition hover:shadow-lg";
+
+      const header = document.createElement("div");
+      header.className = "flex justify-between items-center gap-4";
+
+      const left = document.createElement("div");
+      left.className = "flex items-center gap-4";
+
+      const icon = document.createElement("img");
+      icon.src = `/images/icons/${item.img}.png`;
+      icon.alt = "Icon";
+      icon.className = "h-8";
+
+      const title = document.createElement("h3");
+      title.className = "text-lg font-semibold";
+      title.textContent = item.title;
+
+      const toggle = document.createElement("span");
+      toggle.textContent = "+";
+      toggle.className = "text-xl";
+
+      const content = document.createElement("p");
+      content.className = "mt-4 text-sm text-gray-600 hidden";
+      content.textContent = item.content;
+
+      header.onclick = () => {
+        const isHidden = content.classList.toggle("hidden");
+        toggle.textContent = isHidden ? "+" : "−";
+      };
+
+      left.appendChild(icon);
+      left.appendChild(title);
+
+      header.appendChild(left);
+      header.appendChild(toggle);
+
+      wrapper.appendChild(header);
+      wrapper.appendChild(content);
+
+      return wrapper;
+    }
+
+    function renderCards(query = "") {
+      container.innerHTML = "";
+
+      const filtered = data.filter((item) => {
+        return (
+          item.title.toLowerCase().includes(query.toLowerCase()) ||
+          item.content.toLowerCase().includes(query.toLowerCase())
+        );
+      });
+
+      filtered.forEach((item) => {
+        container.appendChild(createCard(item));
+      });
+    }
+
+    input.addEventListener("input", (e) => {
+      renderCards(e.target.value);
+    });
+
+    renderCards();
+  </script>
+</Layout>
+
+<style>
+  #hero {
+    background-image: url("/images/wallpapers/04.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .faq-open p {
+    display: block !important;
+  }
+</style>
