@@ -4,6 +4,7 @@ import CustomH2 from "../components/CustomH2.astro";
 import Step from "../components/Step.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
 import "../style.css";
 ---
 
@@ -44,11 +45,22 @@ import "../style.css";
   <section class="h-100 mt-24 py-12 px-32 flex justify-between">
     <div class="w-2/3 text-left flex flex-col justify-center items-start">
       <CustomH2 title="Much more compatible than ever" class="mb-12" />
-      <Text class="text-left"
+      <Text
+        class="text-left"
         text="Eventura adapts to you, wherever you are and whatever your event. Compatible with any device, platform, or audience type, our technology allows you to organize, attend, and enjoy without limits. Because true connection knows no boundaries."
       />
     </div>
-    <img src="/images/world.png" class="h-full w-auto" alt="Globe ">
+    <img src="/images/world.png" class="h-full w-auto" alt="Globe " />
+  </section>
+  <section>
+    <div class="bg-[#2e2e2e] py-16 px-26 flex flex-col gap-8">
+      <CustomH2 title="Join this amazing world" class="text-white" />
+      <Text
+        class="text-white w-250 mx-auto mb-12"
+        text="Be part of a new way of experiencing events. With Eventura, you don't just organize or attend: you connect, share, and create moments that leave a lasting impression. Join today and discover how your next event can be extraordinary."
+      />
+      <Button text="Start new adventure" size="lg"/>
+    </div>
   </section>
 </Layout>
 
