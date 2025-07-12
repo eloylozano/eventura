@@ -6,10 +6,9 @@ import PriceCard from "../components/PriceCard.astro";
 <Layout>
   <section id="hero" class="flex flex-col justify-center h-[30vh] text-white">
     <div class="py-12 flex flex-col items-center gap-12">
-      <h1 class="font-bold text-6xl text-center">¿CUÁL ES EL COSTE?</h1>
+      <h1 class="font-bold text-6xl text-center">WHAT IS THE COST?</h1>
       <p class="text-md text-center w-2/3 font-regular">
-        En Eventura solo pagas por lo que realmente necesitas. Ofrecemos planes
-        flexibles que se adaptan a organizadores ocasionales o profesionales...
+        At Eventura, you only pay for what you really need. We offer flexible plans that adapt to both casual and professional organizers...
       </p>
     </div>
   </section>
@@ -19,7 +18,7 @@ import PriceCard from "../components/PriceCard.astro";
       class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center"
     >
       <PriceCard
-        title="Gratis"
+        title="Free"
         description="Ideal para empezar o eventos personales."
         price="0"
         features={[
@@ -34,7 +33,7 @@ import PriceCard from "../components/PriceCard.astro";
         highlighted={true}
       />
       <PriceCard
-        title="Básico"
+        title="Basic"
         description="For occasional organizers or small events."
         price="19,99"
         features={[
@@ -48,7 +47,7 @@ import PriceCard from "../components/PriceCard.astro";
         ]}
       />
       <PriceCard
-        title="Estándar"
+        title="Standard"
         description="Designed for recurring events and medium-sized audiences."
         price="49,99"
         features={[

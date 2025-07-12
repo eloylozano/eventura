@@ -5,8 +5,8 @@ import CustomH4 from "./CustomH4.astro";
 const { title, text, img } = Astro.props;
 ---
 
-<div class="flex flex-col justify-center items-center gap-2 max-w-80 ">
+<div class="flex flex-col justify-center items-center gap-2 max-w-60 ">
   <img src=`/public/images/icons/${img}.svg` alt="Icon" class="h-12 w-12" />
-  <CustomH4 title={title}></CustomH4>
+  <CustomH4 title={title} class="text-center"></CustomH4>
   <Text text={text}></Text>
 </div>
